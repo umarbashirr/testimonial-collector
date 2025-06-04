@@ -27,7 +27,7 @@ const RandomFormPage = async ({
 
   return (
     <div className="p-10">
-      <div className="flex flex-col justify-center items-center gap-4 w-[120px] h-[120px] relative mx-auto">
+      <div className="flex flex-col justify-center items-center gap-4 w-[200px] h-[120px] relative mx-auto">
         <Image
           src={form?.brandLogo || ""}
           alt={form?.brandTitle + "logo"}

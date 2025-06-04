@@ -6,8 +6,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Copy, CopyCheck } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const CopyToClipboardAction = ({ url }: { url: string }) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -15,12 +16,15 @@ export const CopyToClipboardAction = ({ url }: { url: string }) => {
   const handleCopyToClipboard = () => {
     window.navigator.clipboard.writeText(url);
     setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 4000);
+    toast("Copied to clipboard!", {
+      description: "Form link copied",
+    });
+    setTimeout(() => setIsCopied(false), 2000);
   };
 
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           variant="ghost"
           size="icon"
@@ -28,7 +32,7 @@ export const CopyToClipboardAction = ({ url }: { url: string }) => {
           onClick={handleCopyToClipboard}
         >
           {isCopied ? (
-            <CopyCheck className="w-4 h-4 animate-in" />
+            <Check className="w-4 h-4 animate-in" />
           ) : (
             <Copy className="w-4 h-4" />
           )}

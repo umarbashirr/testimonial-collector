@@ -1,21 +1,9 @@
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
-import { Pencil, PlusCircleIcon } from "lucide-react";
+import { PlusCircleIcon } from "lucide-react";
 import Link from "next/link";
 import { getSession } from "./actions";
-
-import { Badge } from "@/components/ui/badge";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Form } from "@prisma/client";
-import Image from "next/image";
-import { CopyToClipboardAction } from "./CopyToClipboardAction";
+import { FormsTable } from "./FormsTable";
 
 const fetchForms = async () => {
   const user = await getSession();
@@ -55,72 +43,7 @@ const FormsArchive = async () => {
           </Link>
         </Button>
       </div>
-      <div className="border rounded-xl p-4">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Serial</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead>Slug</TableHead>
-              <TableHead>Custom Domain</TableHead>
-              <TableHead>Branded Logo</TableHead>
-              <TableHead>Company Name</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Testimonial Type</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {forms?.map((form: Form, index: number) => (
-              <TableRow key={form.id}>
-                <TableCell>{index + 1}</TableCell>
-                <TableCell>{form.title}</TableCell>
-                <TableCell>
-                  <div className="flex gap-1 items-center">
-                    <Link
-                      href={process.env.BETTER_AUTH_URL + "/form/" + form.slug}
-                      target="_blank"
-                      className="underline"
-                    >
-                      {process.env.BETTER_AUTH_URL + "/form/" + form.slug}
-                    </Link>
-                    <CopyToClipboardAction
-                      url={`${process.env.BETTER_AUTH_URL}/form/${form.slug}`}
-                    />
-                  </div>
-                </TableCell>
-                <TableCell>
-                  {form.customDomain ? form.customDomain : "N/A"}
-                </TableCell>
-                <TableCell>
-                  <Image
-                    src={form.brandLogo || ""}
-                    alt="logo"
-                    width={50}
-                    height={50}
-                  />
-                </TableCell>
-                <TableCell>{form.brandTitle}</TableCell>
-                <TableCell>
-                  <Badge variant={form.isActive ? "outline" : "destructive"}>
-                    {form.isActive ? "Active" : "Draft"}
-                  </Badge>
-                </TableCell>
-                <TableCell>
-                  {form.isVideoForm ? "Video Testimonial" : "Text Testimonial"}
-                </TableCell>
-                <TableCell>
-                  <Button size={"icon"} asChild variant={"outline"}>
-                    <Link href={`/forms/edit/${form.id}`}>
-                      <Pencil className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <FormsTable forms={forms} />
     </div>
   );
 };

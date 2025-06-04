@@ -38,13 +38,6 @@ const TestimonialsArchive = async () => {
         </div>
       </div>
       <TestimonialTable testimonials={testimonials} />
-      <div>
-        <code className="bg-muted p-2 rounded text-sm">
-          {`<iframe src="${process.env.NEXT_PUBLIC_APP_URL}/wall/${
-            testimonials && testimonials[0].formRef.slug
-          }" width="100%" height="400" frameBorder="0"></iframe>`}
-        </code>
-      </div>
     </div>
   );
 };
