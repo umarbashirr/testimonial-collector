@@ -29,7 +29,7 @@ const FeedbackSchema = z.object({
   phoneNumber: z.string().optional(),
   avatar: z.string().optional(),
   video: z.string().optional(),
-  content: z.string().min(10, "Please enter at least 10 characters"),
+  content: z.string().optional(),
   rating: z.number().min(1).max(5),
 });
 

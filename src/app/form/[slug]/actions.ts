@@ -6,7 +6,7 @@ type FeedbackData = {
   name: string;
   email: string;
   rating: number;
-  content: string;
+  content?: string;
   phoneNumber?: string | undefined;
   avatar?: string | undefined;
   video?: string | undefined;

@@ -94,7 +94,7 @@ model Testimonial {
   formId      String               @db.Uuid
   formRef     Form                 @relation(fields: [formId], references: [id])
   rating      Int                  @db.SmallInt
-  content     String               @db.Text
+  content     String?              @db.Text
   avatar      String?
   video       String?
   isApproved  Boolean              @default(false) @db.Boolean
