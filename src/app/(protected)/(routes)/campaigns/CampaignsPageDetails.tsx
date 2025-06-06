@@ -36,17 +36,17 @@ const campaigns = [
 
 const CampaignsPageDetails = () => {
   return (
-    <div>
+    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-medium">Campaigns</h3>
+          <h3 className="text-lg font-medium">Testimonial Forms</h3>
           <p className="text-sm text-muted-foreground">
-            Manage your testimonial collection campaigns
+            Manage your testimonial collection forms
           </p>
         </div>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
-          New Campaign
+          New Testimonial Form
         </Button>
       </div>
 

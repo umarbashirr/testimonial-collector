@@ -197,7 +197,7 @@ export default async function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
         {/* Recent Activity and Quick Actions */}
         <RecentTestimonials testimonials={testimonials} />
-        <DashboardQuickActions />
+        <DashboardQuickActions userForms={forms} />
       </div>
 
       {/* Form Insights */}
