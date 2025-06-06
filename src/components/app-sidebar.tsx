@@ -1,10 +1,12 @@
 "use client";
 
 import {
+  IconChartBar,
   IconDashboard,
-  IconFiles,
+  IconForms,
   IconInnerShadowTop,
-  IconStarFilled,
+  IconMessageDots,
+  IconSend,
 } from "@tabler/icons-react";
 import * as React from "react";
 
@@ -27,15 +29,26 @@ const navMain = [
     url: "/dashboard",
     icon: IconDashboard,
   },
+
+  {
+    title: "Analytics",
+    url: "/analytics",
+    icon: IconChartBar,
+  },
+  {
+    title: "Campaigns",
+    url: "/campaigns",
+    icon: IconSend,
+  },
   {
     title: "Forms",
     url: "/forms",
-    icon: IconFiles,
+    icon: IconForms,
   },
   {
     title: "Testimonials",
     url: "/testimonials",
-    icon: IconStarFilled,
+    icon: IconMessageDots,
   },
 ];
 
